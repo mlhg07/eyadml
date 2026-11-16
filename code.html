@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Thư Đặc Biệt Dành Cho Anh ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        script: ['Dancing Script', 'cursive'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        rosePastel: '#FFF0F3',
+                        roseSoft: '#FFCCD5',
+                        roseMedium: '#FF8FA3',
+                        roseDeep: '#C9184A',
+                        wineRed: '#800F2F',
+                        warmGold: '#D4A373',
+                        creamPaper: '#FFFDF9',
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'wiggle': 'wiggle 1.2s ease-in-out infinite',
+                        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'shake': 'shake 0.45s cubic-bezier(.36,.07,.19,.97) both',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        heartbeat: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '25%': { transform: 'scale(1.06)' },
+                            '40%': { transform: 'scale(0.98)' },
+                            '60%': { transform: 'scale(1.04)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px) scale(0.97)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-2px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(4px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-6px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(6px, 0, 0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        
+        body {
+            background: linear-gradient(135deg, #FFF0F3 0%, #FFE5EC 45%, #FFCCD5 100%);
+            min-height: 100dvh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        
+        .glass-card {
+            background: rgba(255, 253, 249, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(255, 143, 163, 0.45);
+            box-shadow: 0 20px 50px rgba(128, 15, 47, 0.14), 0 4px 15px rgba(255, 143, 163, 0.25);
+        }
+
+       
+        .letter-paper {
+            background-color: #FFFDF9;
+            background-image: radial-gradient(#FFCCD5 0.75px, transparent 0.75px);
+            background-size: 20px 20px;
+            border: 2px solid #FFB3C1;
+            box-shadow: 0 25px 60px rgba(128, 15, 47, 0.18);
+        }
+
+        
+        .polaroid-frame {
+            background: #FFFFFF;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 12px 30px rgba(128, 15, 47, 0.18);
+            border: 1px solid #FFE5EC;
+            transition: transform 0.35s ease;
+        }
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        
+        .option-card {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .option-card:hover {
+            transform: translateY(-4px);
+        }
+        .option-card.selected {
+            background: linear-gradient(135deg, #FFF0F3 0%, #FFE5EC 100%);
+            border-color: #C9184A;
+            box-shadow: 0 10px 25px rgba(201, 24, 74, 0.25);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+       
+        #btn-no {
+            transition: left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.2s ease;
+        }
+
+       
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF0F3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF8FA3;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-rose-200 selection:text-wineRed flex flex-col items-center justify-center p-4 sm:p-6">
+
+    
+    <canvas id="bg-particles" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+   
+    <div class="fixed top-3 right-3 sm:top-5 sm:right-5 z-40 flex items-center gap-2">
+        <div id="secret-admin-trigger" onclick="handleSecretTrigger()" class="w-10 h-10 rounded-full cursor-default select-none"></div>
+        <button id="btn-sound" onclick="toggleSound()" title="Bật/Tắt hiệu ứng âm thanh"
+            class="p-2.5 sm:p-3 rounded-full bg-white/85 backdrop-blur-md border border-rose-200 text-roseDeep shadow-md hover:scale-105 active:scale-95 transition">
+            <span id="sound-icon" class="text-base sm:text-lg">🔊</span>
+        </button>
+        <button id="btn-open-settings" onclick="openSettingsModal()" title="Chế độ chủ nhân: Tùy chỉnh nội dung & ảnh"
+            class="hidden items-center gap-1.5 px-3 py-2.5 sm:px-4 sm:py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-rose-300 text-wineRed font-semibold text-xs sm:text-sm shadow-md hover:bg-rose-50 hover:scale-105 active:scale-95 transition">
+            <span>⚙️</span>
+            <span>Tùy chỉnh thiệp</span>
+        </button>
+    </div>
+
+    
+    <main class="relative z-10 w-full max-w-2xl mx-auto my-auto">
+
+        <!-- ========================================================= -->
+        <!-- MÀN HÌNH 1: CÂU HỎI MỞ KHÓA TRÁI TIM                      -->
+        <!-- ========================================================= -->
+        <section id="screen-1" class="glass-card rounded-3xl p-6 sm:p-10 text-center animate-fade-in-up">
+            <!-- Biểu tượng ổ khóa trái tim bay bổng -->
+            <div class="w-20 h-20 mx-auto mb-5 rounded-full bg-gradient-to-tr from-roseSoft to-rosePastel border-2 border-roseMedium flex items-center justify-center shadow-lg animate-float">
+                <span class="text-4xl">🔐</span>
+            </div>
+
+            <span class="inline-block px-3.5 py-1 rounded-full bg-rose-100 text-roseDeep text-xs font-extrabold tracking-wider uppercase mb-3">
+                Bí Mật Nhỏ Dành Cho Anh ✨
+            </span>
+
+            <h1 id="display-question" class="font-serif text-2xl sm:text-3xl font-bold text-wineRed mb-2 leading-snug">
+                Anh cóa yêu em khônggg 🥰
+            </h1>
+
+            <p class="text-slate-500 text-xs sm:text-sm mb-6">
+                Trả lời đúng mật mã để mở chiếc thư bí mật em gửi cho anh nha!
+            </p>
+
+            <!-- Ô nhập đáp án -->
+            <form id="quiz-form" onsubmit="handleQuizSubmit(event)" class="space-y-4">
+                <div id="input-wrapper" class="relative">
+                    <input type="text" id="answer-input" autocomplete="off"
+                        placeholder="Nhập câu trả lời của anh vào đây..."
+                        class="w-full px-5 py-3.5 rounded-2xl bg-white border-2 border-rose-200 focus:border-roseDeep focus:outline-none text-center text-slate-800 font-semibold text-base shadow-inner transition" />
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-roseDeep via-rose-600 to-wineRed text-white font-bold text-base sm:text-lg shadow-lg shadow-rose-300 hover:shadow-xl hover:brightness-110 active:scale-[0.98] transition flex items-center justify-center gap-2">
+                    <span>Xác nhận đáp án</span>
+                    <span>💌</span>
+                </button>
+            </form>
+
+            <!-- Khu vực hiển thị gợi ý khi trả lời sai -->
+            <div id="hint-box" class="hidden mt-5 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-sm sm:text-base animate-fade-in-up">
+                <div class="flex items-center justify-center gap-2 font-bold text-amber-700 mb-1">
+                    <span>🙈</span>
+                    <span>Ui, sai mất rùi yêu ơi!</span>
+                </div>
+                <p id="display-hint" class="text-amber-800 italic">
+                    Gợi ý: Câu trả lời đẩy đủ chủ vị mới được chấp nhận nhíe 😘
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- MÀN HÌNH 2: LỜI MỜI MỞ THƯ ("ANH MỞ THƯ NHÉ ẠAA")         -->
+        <!-- ========================================================= -->
+        <section id="screen-2" class="hidden glass-card rounded-3xl p-6 sm:p-10 text-center animate-fade-in-up">
+            <!-- Minh họa phong bì thư dễ thương đang rung rinh -->
+            <div class="relative w-32 h-28 mx-auto mb-6 animate-wiggle">
+                <svg viewBox="0 0 140 110" class="w-full h-full drop-shadow-xl">
+                    <!-- Thân phong bì -->
+                    <rect x="10" y="15" width="120" height="80" rx="14" fill="#FFF0F3" stroke="#FF8FA3" stroke-width="3"/>
+                    <!-- Nắp dưới -->
+                    <path d="M12 92 L70 52 L128 92" fill="#FFE5EC" stroke="#FF8FA3" stroke-width="2.5" stroke-linejoin="round"/>
+                    <!-- Nắp trên -->
+                    <path d="M12 18 L70 62 L128 18" fill="#FFCCD5" stroke="#FF8FA3" stroke-width="2.5" stroke-linejoin="round"/>
+                    <!-- Con dấu trái tim đỏ ở giữa -->
+                    <circle cx="70" cy="56" r="16" fill="#C9184A"/>
+                    <path d="M70 64 C70 64 60 57.5 60 51.5 C60 48.5 62.5 46.5 65 46.5 C67 46.5 69 47.8 70 49.5 C71 47.8 73 46.5 75 46.5 C77.5 46.5 80 48.5 80 51.5 C80 57.5 70 64 70 64 Z" fill="#FFFFFF"/>
+                </svg>
+                <!-- Hạt lấp lánh quanh thư -->
+                <span class="absolute -top-2 -right-2 text-2xl animate-bounce">✨</span>
+                <span class="absolute -bottom-1 -left-2 text-xl animate-pulse">💖</span>
+            </div>
+
+            <p class="text-roseDeep font-bold text-xs sm:text-sm uppercase tracking-widest mb-2">
+                Mở khóa thành công rồi nè! 🎉
+            </p>
+
+            <h2 class="font-script text-4xl sm:text-5xl font-bold text-wineRed mb-3 leading-tight">
+                Anh mở thư nhé ạaa 🥺💕
+            </h2>
+
+            <p class="text-slate-600 text-sm sm:text-base mb-8">
+                Em đã chuẩn bị điều này riêng cho anh đó...
+            </p>
+
+            <!-- Khu vực 2 nút lựa chọn xếp SONG SONG cạnh nhau -->
+            <div class="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-5">
+                <button id="btn-yes" onclick="openLetterScreen()"
+                    class="py-3.5 px-6 sm:px-8 rounded-2xl bg-gradient-to-r from-roseDeep to-wineRed text-white font-extrabold text-base sm:text-lg shadow-lg shadow-rose-300 hover:shadow-xl hover:scale-105 active:scale-95 transition animate-heartbeat z-20">
+                    Ok, em yêu ❤️
+                </button>
+
+                <button id="btn-no" type="button"
+                    class="py-3.5 px-6 sm:px-7 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-base sm:text-lg border border-slate-300 shadow-sm select-none z-30">
+                    Không mở đâu 😜
+                </button>
+            </div>
+
+            <!-- Dòng chữ thông báo chỉ hiện ra khi anh bấm vào nút "Không mở đâu" -->
+            <p id="tease-message" class="hidden mt-5 text-roseDeep font-bold text-sm sm:text-base">
+                Rất tiếc! Anh hông thể chọn cái nì 😝💘
+            </p>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- MÀN HÌNH 3: BỨC THƯ MỜI HẸN HÒ 19/11 & CHỌN ĐỊA ĐIỂM      -->
+        <!-- ========================================================= -->
+        <section id="screen-3" class="hidden letter-paper rounded-3xl p-5 sm:p-9 animate-fade-in-up relative overflow-hidden">
+            <!-- Ruy băng góc trang trí -->
+            <div class="absolute -top-6 -right-6 w-24 h-24 bg-rose-200/50 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-6 -left-6 w-28 h-28 bg-amber-200/40 rounded-full blur-xl pointer-events-none"></div>
+
+            <!-- Tiêu đề bức thư -->
+            <div class="text-center mb-6 relative z-10">
+                <span class="inline-block px-4 py-1 rounded-full bg-rose-100 text-roseDeep text-xs font-extrabold tracking-widest uppercase mb-2">
+                    Happy Men's Day • 19/11
+                </span>
+                <h2 class="font-script text-3xl sm:text-5xl font-bold text-wineRed">
+                    Thư Mời Hẹn Hò Đặc Biệt 💌
+                </h2>
+            </div>
+
+            <!-- Khung ảnh kỷ niệm Polaroid (Bộ sưu tập 3 ảnh) -->
+            <div class="mb-6 relative z-10">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 items-center">
+                    <!-- Ảnh 1 -->
+                    <div class="polaroid-frame sm:-rotate-3 w-full max-w-[260px] sm:max-w-none mx-auto relative group">
+                        <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-rose-50 relative">
+                            <img id="letter-photo-0"
+                                src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80"
+                                onerror="this.src='https://placehold.co/600x450/FFCCD5/800F2F?text=%E1%BA%A2nh+1+%E2%9D%A4%EF%B8%8F'"
+                                alt="Ảnh kỷ niệm 1"
+                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                            <label for="quick-photo-upload-0" title="Tải ảnh 1 lên"
+                                class="admin-only hidden absolute bottom-2 right-2 cursor-pointer bg-white/90 hover:bg-white text-wineRed text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md items-center gap-1 transition opacity-95 hover:opacity-100">
+                                <span>📷</span>
+                                <span>Ảnh 1</span>
+                            </label>
+                            <input type="file" id="quick-photo-upload-0" accept="image/*" class="hidden" onchange="handlePhotoUpload(event, 0)" />
+                        </div>
+                        <p class="font-script text-base text-center text-wineRed mt-2">Em✨</p>
+                    </div>
+
+                    <!-- Ảnh 2 (Nổi bật ở giữa) -->
+                    <div class="polaroid-frame sm:scale-105 sm:z-10 w-full max-w-[260px] sm:max-w-none mx-auto relative group">
+                        <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-rose-50 relative">
+                            <img id="letter-photo-1"
+                                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80"
+                                onerror="this.src='https://placehold.co/600x450/FFCCD5/800F2F?text=%E1%BA%A2nh+2+%F0%9F%92%95'"
+                                alt="Ảnh kỷ niệm 2"
+                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                            <label for="quick-photo-upload-1" title="Tải ảnh 2 lên"
+                                class="admin-only hidden absolute bottom-2 right-2 cursor-pointer bg-white/90 hover:bg-white text-wineRed text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md items-center gap-1 transition opacity-95 hover:opacity-100">
+                                <span>📷</span>
+                                <span>Ảnh 2</span>
+                            </label>
+                            <input type="file" id="quick-photo-upload-1" accept="image/*" class="hidden" onchange="handlePhotoUpload(event, 1)" />
+                        </div>
+                        <p class="font-script text-base text-center text-wineRed mt-2">Yêu💖</p>
+                    </div>
+
+                    <!-- Ảnh 3 -->
+                    <div class="polaroid-frame sm:rotate-3 w-full max-w-[260px] sm:max-w-none mx-auto relative group">
+                        <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-rose-50 relative">
+                            <img id="letter-photo-2"
+                                src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80"
+                                onerror="this.src='https://placehold.co/600x450/FFCCD5/800F2F?text=%E1%BA%A2nh+3+%F0%9F%8C%B9'"
+                                alt="Ảnh kỷ niệm 3"
+                                class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+                            <label for="quick-photo-upload-2" title="Tải ảnh 3 lên"
+                                class="admin-only hidden absolute bottom-2 right-2 cursor-pointer bg-white/90 hover:bg-white text-wineRed text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md items-center gap-1 transition opacity-95 hover:opacity-100">
+                                <span>📷</span>
+                                <span>Ảnh 3</span>
+                            </label>
+                            <input type="file" id="quick-photo-upload-2" accept="image/*" class="hidden" onchange="handlePhotoUpload(event, 2)" />
+                        </div>
+                        <p class="font-script text-base text-center text-wineRed mt-2">Anh🌹</p>
+                    </div>
+                </div>
+
+                <p id="photo-caption" class="font-script text-2xl text-center text-wineRed mt-4">
+                    Gửi chàng trai tuyệt vời nhất của em ❤️
+                </p>
+            </div>
+
+            <!-- Nội dung bức thư -->
+            <div class="bg-white/80 border border-rose-200/80 rounded-2xl p-4 sm:p-6 mb-6 shadow-sm relative z-10">
+                <p id="display-letter-body" class="text-slate-700 text-sm sm:text-base leading-relaxed whitespace-pre-line font-medium">
+                    Sắp tới là ngày Quốc tế Nam giới 19/11, em muốn chúc mừng ngày này cùng anh. Hìii, vì là ngày đặc biệt dành cho anh, nên em muốn “nhân vật chính” của lòng em có một buổi tối thật vui và trọn vẹn cùng em.🌹
+ 
+Anh sắp xếp công việc để thời gian rảnh cho em từ chiều tối Thứ Năm nhá, định nghe lời anh hông có xuống làm sao nhãng anh mà không được rùi, cho em không nghe anh lần này nháa. Yêu anh!
+
+Anh cứ làm việc của anh đi ạ, chiều học xong em xuống rồi gửi đồ cho bạn, xong việc em đặt xe qua với anh nha, đừng từ chối em đấy, bùn lắmmm 🥺
+
+Anh chỉ cần chuẩn bị một tâm hồn đẹp, mọi thứ còn lại để em lo nha! 💕
+
+
+                </p>
+            </div>
+
+            <!-- Thời gian hẹn hò -->
+            <div class="bg-gradient-to-r from-rose-50 via-amber-50/70 to-rose-50 border border-amber-200/80 rounded-2xl p-4 mb-6 flex items-center gap-3.5 relative z-10">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl shrink-0 shadow-inner">
+                    🗓️
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-amber-700">Thời gian hẹn hò</p>
+                    <p id="display-datetime" class="font-serif font-bold text-wineRed text-base sm:text-lg">
+                        18:30 • Thứ Năm, Ngày 19/11/2026
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3 Lựa chọn địa điểm / món ăn -->
+            <div class="mb-6 relative z-10">
+                <h3 class="font-serif font-bold text-wineRed text-lg sm:text-xl text-center mb-1">
+                    Tối đó anh muốn chúng mình ăn gì nè? Em có những option này cho anh chọn ạ 🍽️
+                </h3>
+                <p class="text-center text-slate-500 text-xs sm:text-sm mb-4">
+                    (Anh hãy chạm vào 1 lựa chọn bên dưới để chốt lịch với em nha!)
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <!-- Lựa chọn 1: Ăn lẩu -->
+                    <button type="button" onclick="selectDateOption(this, '🍲 Mình ăn lẩu cùng nhau')"
+                        class="option-card text-left sm:text-center p-4 rounded-2xl bg-white border-2 border-rose-200 flex sm:flex-col items-center gap-3.5 sm:gap-2 cursor-pointer">
+                        <span class="text-3xl sm:text-4xl">🍲</span>
+                        <div>
+                            <div class="font-extrabold text-wineRed text-base">Ăn lẩu</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Cũng chill<br>(Anh có thể chọn ăn ở quán hoặc ord vìa nhe)</div>
+                        </div>
+                    </button>
+
+                    <!-- Lựa chọn 2: Ăn ốc -->
+                    <button type="button" onclick="selectDateOption(this, '🐚 Mình cùng đi ăn ốc')"
+                        class="option-card text-left sm:text-center p-4 rounded-2xl bg-white border-2 border-rose-200 flex sm:flex-col items-center gap-3.5 sm:gap-2 cursor-pointer">
+                        <span class="text-3xl sm:text-4xl">🐚</span>
+                        <div>
+                            <div class="font-extrabold text-wineRed text-base">Ăn ốc</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Quán tủ nìe</div>
+                        </div>
+                    </button>
+
+                    <!-- Lựa chọn 3: Em nấu -->
+                    <button type="button" onclick="selectDateOption(this, '👩‍🍳 Bữa tối do chính tay em nấu')"
+                        class="option-card text-left sm:text-center p-4 rounded-2xl bg-white border-2 border-rose-200 flex sm:flex-col items-center gap-3.5 sm:gap-2 cursor-pointer">
+                        <span class="text-3xl sm:text-4xl">👩‍🍳</span>
+                        <div>
+                            <div class="font-extrabold text-wineRed text-base">Em nấu</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Cơm do tay em nấu hahaaa<br>(Anh cho em xin menu a muốn nhíe)</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Nút Chốt kèo (hiện ra sau khi chọn 1 trong 3 địa điểm) -->
+            <div id="confirm-bar" class="hidden relative z-10 animate-fade-in-up">
+                <button onclick="finalizeDate()"
+                    class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-roseDeep via-rose-600 to-wineRed text-white font-extrabold text-base sm:text-lg shadow-xl shadow-rose-300 hover:brightness-110 active:scale-[0.98] transition flex items-center justify-center gap-2">
+                    <span>Ấn vào đây để chốt kèo nhé anh yêu!</span>
+                    <span>❤️</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- MODAL XÁC NHẬN CHỐT KÈO THÀNH CÔNG (ĐỂ CHỤP MÀN HÌNH)      -->
+    <!-- ========================================================= -->
+    <div id="success-modal" class="hidden fixed inset-0 z-50 bg-wineRed/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 text-center border-2 border-rose-300 shadow-2xl animate-fade-in-up relative">
+            <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-rose-100 text-roseDeep flex items-center justify-center text-3xl animate-bounce">
+                🥰
+            </div>
+            <h3 class="font-script text-3xl sm:text-4xl font-bold text-wineRed mb-2">
+                Đã Lên Lịch Hẹn Thành Công!
+            </h3>
+            <p class="text-slate-600 text-sm mb-4">
+                Em đã nhận được tín hiệu từ anh rồi nha! Hẹn gặp anh ngày 19/11 đầy vui vẻ nhé ❤️
+            </p>
+
+            <!-- Phiếu hẹn hò tóm tắt -->
+            <div class="bg-rose-50 border-2 border-dashed border-rose-300 rounded-2xl p-4 text-left space-y-2 mb-5">
+                <div class="flex justify-between text-xs text-roseDeep font-bold uppercase tracking-wider">
+                    <span>Vé Hẹn Hò 19/11</span>
+                    <span>VIP • ONLY YOU</span>
+                </div>
+                <div class="border-t border-rose-200 pt-2 text-sm">
+                    <span class="text-slate-500">Thời gian:</span>
+                    <span id="ticket-time" class="font-bold text-wineRed block sm:inline">18:30 • Thứ Năm, Ngày 19/11/2026</span>
+                </div>
+                <div class="text-sm">
+                    <span class="text-slate-500">Option anh chọn:</span>
+                    <span id="ticket-choice" class="font-extrabold text-roseDeep block sm:inline">🍲 Ăn lẩu</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-roseDeep font-semibold mb-4">
+                📸 Anh chụp màn hình chiếc vé này gửi lại cho em nha!
+            </p>
+
+            <button onclick="closeSuccessModal()"
+                class="w-full py-3 rounded-xl bg-rose-100 hover:bg-rose-200 text-wineRed font-bold text-sm transition">
+                Xem lại bức thư 💌
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL CÀI ĐẶT NHANH (TÙY CHỈNH NỘI DUNG, ẢNH & LINK GỬI)  -->
+    <!-- ========================================================= -->
+    <div id="settings-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-7 border border-rose-200 shadow-2xl my-auto max-h-[90dvh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3 mb-4">
+                <div>
+                    <h3 class="font-serif font-bold text-xl text-wineRed">Tùy Chỉnh Thư Mời 19/11 ✨</h3>
+                    <p class="text-xs text-slate-500">Chỉnh sửa nội dung theo ý bạn trước khi gửi cho người ấy</p>
+                </div>
+                <button onclick="closeSettingsModal()" class="w-8 h-8 rounded-full bg-rose-50 text-wineRed font-bold hover:bg-rose-100">✕</button>
+            </div>
+
+            <div class="space-y-4 text-sm">
+                <!-- Câu hỏi mật mã -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">1. Câu hỏi mở khóa (Màn 1):</label>
+                    <input type="text" id="cfg-question" class="w-full px-3.5 py-2 rounded-xl border border-rose-200 focus:border-roseDeep focus:outline-none" />
+                </div>
+
+                <!-- Đáp án chấp nhận -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">2. Các đáp án đúng (cách nhau bằng dấu phẩy):</label>
+                    <input type="text" id="cfg-answer" placeholder="Ví dụ: em, em yêu, vợ yêu" class="w-full px-3.5 py-2 rounded-xl border border-rose-200 focus:border-roseDeep focus:outline-none" />
+                    <p class="text-[11px] text-slate-400 mt-1">Mẹo: Nhập dấu <b>*</b> nếu muốn chấp nhận mọi câu trả lời của anh.</p>
+                </div>
+
+                <!-- Gợi ý khi sai -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">3. Lời gợi ý khi trả lời sai:</label>
+                    <textarea id="cfg-hint" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-rose-200 focus:border-roseDeep focus:outline-none"></textarea>
+                </div>
+
+                <!-- Tải ảnh lên (3 ảnh) -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1.5">4. Bộ 3 ảnh kỷ niệm trên thiệp:</label>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <label for="cfg-photo-file-0" class="cursor-pointer px-3 py-2 rounded-xl bg-rose-100 hover:bg-rose-200 text-wineRed font-bold text-xs transition">
+                            📷 Chọn Ảnh 1
+                        </label>
+                        <input type="file" id="cfg-photo-file-0" accept="image/*" class="hidden" onchange="handlePhotoUpload(event, 0)" />
+
+                        <label for="cfg-photo-file-1" class="cursor-pointer px-3 py-2 rounded-xl bg-rose-100 hover:bg-rose-200 text-wineRed font-bold text-xs transition">
+                            📷 Chọn Ảnh 2
+                        </label>
+                        <input type="file" id="cfg-photo-file-1" accept="image/*" class="hidden" onchange="handlePhotoUpload(event, 1)" />
+
+                        <label for="cfg-photo-file-2" class="cursor-pointer px-3 py-2 rounded-xl bg-rose-100 hover:bg-rose-200 text-wineRed font-bold text-xs transition">
+                            📷 Chọn Ảnh 3
+                        </label>
+                        <input type="file" id="cfg-photo-file-2" accept="image/*" class="hidden" onchange="handlePhotoUpload(event, 2)" />
+                    </div>
+                    <p id="cfg-photo-status" class="text-xs text-slate-500 mt-1.5">Bấm từng nút hoặc bấm trực tiếp trên khung ảnh ngoài thiệp để đổi ảnh</p>
+                </div>
+
+                <!-- Chú thích dưới ảnh -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">5. Dòng chữ dưới khung ảnh:</label>
+                    <input type="text" id="cfg-caption" class="w-full px-3.5 py-2 rounded-xl border border-rose-200 focus:border-roseDeep focus:outline-none" />
+                </div>
+
+                <!-- Thời gian hẹn -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">6. Thời gian hẹn hò:</label>
+                    <input type="text" id="cfg-datetime" class="w-full px-3.5 py-2 rounded-xl border border-rose-200 focus:border-roseDeep focus:outline-none" />
+                </div>
+
+                <!-- Nội dung bức thư -->
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">7. Nội dung bức thư mời:</label>
+                    <textarea id="cfg-letter" rows="4" class="w-full px-3.5 py-2 rounded-xl border border-rose-200 focus:border-roseDeep focus:outline-none"></textarea>
+                </div>
+            </div>
+
+            <!-- Nút lưu & tạo link chia sẻ -->
+            <div class="mt-6 pt-4 border-t border-rose-100 flex flex-col sm:flex-row gap-2.5">
+                <button onclick="saveAndApplySettings()"
+                    class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-roseDeep to-wineRed text-white font-bold text-sm shadow-md hover:brightness-110 transition">
+                    Lưu & Xem trước thiệp ✨
+                </button>
+                <button onclick="copyShareLink()"
+                    class="py-3 px-4 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-sm transition flex items-center justify-center gap-1.5">
+                    <span>🔗</span>
+                    <span>Sao chép Link gửi anh</span>
+                </button>
+            </div>
+            <p id="copy-feedback" class="hidden text-center text-xs text-emerald-600 font-bold mt-2">
+                ✅ Đã sao chép đường link kèm nội dung của bạn! Hãy dán gửi cho người ấy nhé.
+            </p>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT XỬ LÝ LOGIC, HIỆU ỨNG & ÂM THANH                -->
+    <!-- ========================================================= -->
+    <script>
+        // 1. Dữ liệu cấu hình mặc định (sửa trực tiếp câu hỏi, đáp án, gợi ý và 3 ảnh của bạn tại đây)
+        const defaultPhotos = [
+            "IMG_1878.jpg",
+            "IMG_8423.jpg",
+            "IMG_8425.jpg"
+        ];
+
+        const defaultData = {
+            question: "Anh cóa yêu em khônggg 🥰",
+            answer: "Anh yêu em, a yêu e, anh rất yêu em, a rất yêu e, anh có yêu em, a có yêu e, Anh có yêu em, A có yêu e",
+            hint: "Gợi ý: Câu trả lời đẩy đủ chủ vị mới được chấp nhận nhíe 😘",
+            caption: "Gửi chàng trai tuyệt vời nhất của em ❤️",
+            datetime: "18:30 • Thứ Năm, Ngày 19/11/2026",
+            letter: " Sắp tới là ngày Quốc tế Nam giới 19/11, em muốn chúc mừng ngày này cùng anh. Hìii, vì là ngày đặc biệt dành cho anh, nên em muốn “nhân vật chính” của lòng em có một buổi tối thật vui và trọn vẹn cùng em.🌹\n\nAnh sắp xếp công việc để thời gian rảnh cho em từ chiều tối Thứ Năm nhá, định nghe lời anh hông có xuống làm sao nhãng anh mà không được rùi, cho em không nghe anh lần này nháa. Yêu anh!\n\nAnh cứ làm việc của anh đi ạ, chiều học xong em xuống rồi gửi đồ cho bạn, xong việc em đặt xe qua với anh nha, đừng từ chối em đấy, bùn lắmmm 🥺\n\nAnh chỉ cần chuẩn bị một tâm hồn đẹp, mọi thứ còn lại để em lo nha! 💕",
+            photos: [...defaultPhotos]
+        };
+
+        let appData = { ...defaultData, photos: [...defaultPhotos] };
+        let selectedChoice = "";
+        let soundEnabled = true;
+        let synth = null;
+        let isAdminMode = false;
+        let secretTapCount = 0;
+        let secretTapTimer = null;
+
+        // Kích hoạt chế độ chỉnh sửa bí mật (chỉ dành cho bạn)
+        function enableAdminMode(openModal = false) {
+            isAdminMode = true;
+            const btnSettings = document.getElementById('btn-open-settings');
+            if (btnSettings) {
+                btnSettings.classList.remove('hidden');
+                btnSettings.classList.add('flex');
+            }
+            document.querySelectorAll('.admin-only').forEach(el => {
+                el.classList.remove('hidden');
+                el.classList.add('flex');
+            });
+            if (openModal) {
+                openSettingsModal();
+            }
+        }
+
+        // Chạm 5 lần vào góc trên bên phải (cạnh nút loa) để mở bảng chỉnh sửa
+        function handleSecretTrigger() {
+            secretTapCount++;
+            clearTimeout(secretTapTimer);
+            if (secretTapCount >= 5) {
+                secretTapCount = 0;
+                enableAdminMode(true);
+            } else {
+                secretTapTimer = setTimeout(() => {
+                    secretTapCount = 0;
+                }, 1500);
+            }
+        }
+
+        // 2. Khởi tạo âm thanh bằng Tone.js
+        function initAudio() {
+            if (!synth && typeof Tone !== 'undefined') {
+                synth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: 'sine' },
+                    envelope: { attack: 0.02, decay: 0.2, sustain: 0.1, release: 0.8 }
+                }).toDestination();
+                synth.volume.value = -10;
+            }
+        }
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                if (Tone.context.state !== 'running') {
+                    Tone.start();
+                }
+                const now = Tone.now();
+                if (type === 'success') {
+                    // Hợp âm vui tươi lấp lánh
+                    synth.triggerAttackRelease(["C5", "E5", "G5"], "8n", now);
+                    synth.triggerAttackRelease(["C6"], "4n", now + 0.15);
+                } else if (type === 'error') {
+                    // Âm thanh trêu chọc nhẹ
+                    synth.triggerAttackRelease(["E4"], "16n", now);
+                    synth.triggerAttackRelease(["C4"], "8n", now + 0.12);
+                } else if (type === 'boing') {
+                    // Âm thanh khi nút chạy trốn
+                    synth.triggerAttackRelease(["G4", "B4"], "32n", now);
+                } else if (type === 'celebrate') {
+                    // Giai điệu chúc mừng
+                    synth.triggerAttackRelease("C5", "16n", now);
+                    synth.triggerAttackRelease("E5", "16n", now + 0.1);
+                    synth.triggerAttackRelease("G5", "16n", now + 0.2);
+                    synth.triggerAttackRelease(["C6", "E6"], "4n", now + 0.3);
+                }
+            } catch (e) {
+                // Bỏ qua nếu trình duyệt chặn autoplay audio
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('sound-icon').textContent = soundEnabled ? '🔊' : '🔇';
+        }
+
+        // 3. Tải dữ liệu cấu hình trực tiếp từ code (hoặc URL Hash nếu có)
+        function loadSavedData() {
+            try {
+                // Xóa bộ nhớ tạm cũ để luôn hiển thị đúng nội dung & ảnh mới nhất bạn sửa trong code
+                localStorage.removeItem('love_invite_19_11');
+
+                // Kiểm tra xem có đang mở bằng chế độ chỉnh sửa (?edit=1) hay không
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('edit') === '1') {
+                    enableAdminMode(false);
+                }
+
+                const hash = window.location.hash;
+                if (hash && hash.startsWith('#data=')) {
+                    const encoded = hash.slice(6);
+                    const decodedStr = decodeURIComponent(escape(atob(encoded)));
+                    const parsed = JSON.parse(decodedStr);
+                    appData = { ...defaultData, ...parsed };
+                } else {
+                    appData = { ...defaultData, photos: [...defaultPhotos] };
+                }
+                if (!Array.isArray(appData.photos) || appData.photos.length < 3) {
+                    appData.photos = [...defaultPhotos];
+                }
+            } catch (err) {
+                console.warn("Không thể đọc dữ liệu tùy chỉnh, dùng mặc định.", err);
+            }
+            renderAppData();
+        }
+
+        function renderAppData() {
+            document.getElementById('display-question').textContent = appData.question;
+            document.getElementById('display-hint').textContent = appData.hint;
+            document.getElementById('photo-caption').textContent = appData.caption;
+            document.getElementById('display-datetime').textContent = appData.datetime;
+            document.getElementById('display-letter-body').textContent = appData.letter;
+            for (let i = 0; i < 3; i++) {
+                const imgEl = document.getElementById(`letter-photo-${i}`);
+                if (imgEl && appData.photos[i]) {
+                    imgEl.src = appData.photos[i];
+                }
+            }
+        }
+
+        // 4. Xử lý Màn hình 1: Kiểm tra câu hỏi
+        function handleQuizSubmit(e) {
+            e.preventDefault();
+            const inputEl = document.getElementById('answer-input');
+            const wrapperEl = document.getElementById('input-wrapper');
+            const hintBox = document.getElementById('hint-box');
+
+            const userAnswer = inputEl.value.trim().toLowerCase();
+            const validAnswers = appData.answer
+                .split(',')
+                .map(a => a.trim().toLowerCase())
+                .filter(Boolean);
+
+            // Nếu người dùng cấu hình đáp án là "*" thì chấp nhận mọi câu trả lời không rỗng
+            const isCorrect = userAnswer.length > 0 && (
+                validAnswers.includes('*') ||
+                validAnswers.some(ans => userAnswer === ans || userAnswer.includes(ans))
+            );
+
+            if (isCorrect) {
+                playSound('success');
+                fireHeartConfetti();
+                hintBox.classList.add('hidden');
+                switchScreen('screen-1', 'screen-2');
+            } else {
+                playSound('error');
+                wrapperEl.classList.remove('animate-shake');
+                void wrapperEl.offsetWidth; // Trigger reflow để chạy lại animation rung
+                wrapperEl.classList.add('animate-shake');
+                hintBox.classList.remove('hidden');
+                inputEl.focus();
+            }
+        }
+
+        // Chuyển đổi mượt mà giữa các màn hình
+        function switchScreen(fromId, toId) {
+            const fromEl = document.getElementById(fromId);
+            const toEl = document.getElementById(toId);
+            if (fromEl) fromEl.classList.add('hidden');
+            if (toEl) {
+                toEl.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // 5. Xử lý Màn hình 2: Nút "Không mở đâu" chỉ chạy trốn & hiện thông báo khi BẤM vào
+        const btnNo = document.getElementById('btn-no');
+        const teaseMsg = document.getElementById('tease-message');
+
+        function moveRunawayButton(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            playSound('boing');
+
+            // Hiển thị dòng chữ trêu chọc và tạo hiệu ứng nhún nhẹ mỗi lần bấm trúng
+            teaseMsg.classList.remove('hidden');
+            teaseMsg.classList.remove('animate-shake');
+            void teaseMsg.offsetWidth;
+            teaseMsg.classList.add('animate-shake');
+
+            // Đưa nút ra trực tiếp thẻ body để tọa độ fixed không bị lệch bởi hiệu ứng transform của thẻ cha
+            if (btnNo.parentElement !== document.body) {
+                document.body.appendChild(btnNo);
+            }
+
+            btnNo.style.position = 'fixed';
+            btnNo.style.margin = '0';
+
+            const btnRect = btnNo.getBoundingClientRect();
+            const btnWidth = btnRect.width || 165;
+            const btnHeight = btnRect.height || 52;
+
+            // Giới hạn vùng an toàn cách mép màn hình ít nhất 20px để nút không bao giờ biến mất
+            const padding = 20;
+            const maxX = Math.max(padding, window.innerWidth - btnWidth - padding);
+            const maxY = Math.max(padding, window.innerHeight - btnHeight - padding);
+
+            const randomX = Math.floor(Math.random() * (maxX - padding + 1)) + padding;
+            const randomY = Math.floor(Math.random() * (maxY - padding + 1)) + padding;
+
+            btnNo.style.left = `${randomX}px`;
+            btnNo.style.top = `${randomY}px`;
+            btnNo.style.transform = `rotate(${(Math.random() * 14 - 7).toFixed(1)}deg)`;
+        }
+
+        // Chỉ kích hoạt khi người dùng BẤM (click) vào nút "Không mở đâu"
+        btnNo.addEventListener('click', moveRunawayButton);
+
+        function openLetterScreen() {
+            playSound('celebrate');
+            fireHeartConfetti();
+            // Ẩn nút chạy trốn nếu nó đang nằm trên màn hình
+            btnNo.style.display = 'none';
+            switchScreen('screen-2', 'screen-3');
+        }
+
+        // 6. Xử lý Màn hình 3: Chọn địa điểm & Chốt kèo
+        function selectDateOption(cardEl, choiceText) {
+            playSound('success');
+            selectedChoice = choiceText;
+
+            // Bỏ chọn các thẻ khác
+            document.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
+            // Đánh dấu thẻ được chọn
+            cardEl.classList.add('selected');
+
+            // Hiện nút Chốt kèo
+            const confirmBar = document.getElementById('confirm-bar');
+            confirmBar.classList.remove('hidden');
+
+            // Bắn pháo tim nhẹ tại vị trí thẻ
+            const rect = cardEl.getBoundingClientRect();
+            const originX = (rect.left + rect.width / 2) / window.innerWidth;
+            const originY = (rect.top + rect.height / 2) / window.innerHeight;
+            confetti({
+                particleCount: 25,
+                spread: 55,
+                origin: { x: originX, y: originY },
+                colors: ['#C9184A', '#FF4D6D', '#FF8FA3', '#FFD166']
+            });
+        }
+
+        function finalizeDate() {
+            if (!selectedChoice) return;
+            playSound('celebrate');
+            fireHeartConfetti();
+
+            document.getElementById('ticket-time').textContent = appData.datetime;
+            document.getElementById('ticket-choice').textContent = selectedChoice;
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // 7. Xử lý tải ảnh (cho từng khung 0, 1, 2) & nén nhẹ để hiển thị đẹp
+        function handlePhotoUpload(event, index = 0) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Resize ảnh tối đa 600px để lưu mượt cả 3 ảnh trong bộ nhớ trình duyệt
+                    const canvas = document.createElement('canvas');
+                    const maxDim = 600;
+                    let w = img.width;
+                    let h = img.height;
+                    if (w > maxDim || h > maxDim) {
+                        if (w > h) {
+                            h = Math.round((h * maxDim) / w);
+                            w = maxDim;
+                        } else {
+                            w = Math.round((w * maxDim) / h);
+                            h = maxDim;
+                        }
+                    }
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                    if (!Array.isArray(appData.photos)) {
+                        appData.photos = [...defaultPhotos];
+                    }
+                    appData.photos[index] = compressedDataUrl;
+
+                    const imgEl = document.getElementById(`letter-photo-${index}`);
+                    if (imgEl) imgEl.src = compressedDataUrl;
+
+                    const statusEl = document.getElementById('cfg-photo-status');
+                    if (statusEl) statusEl.textContent = `✅ Đã cập nhật Ảnh ${index + 1}: ${file.name}`;
+                    saveToLocalStorage();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // 8. Modal Cài đặt & Tạo link chia sẻ
+        function openSettingsModal() {
+            document.getElementById('cfg-question').value = appData.question;
+            document.getElementById('cfg-answer').value = appData.answer;
+            document.getElementById('cfg-hint').value = appData.hint;
+            document.getElementById('cfg-caption').value = appData.caption;
+            document.getElementById('cfg-datetime').value = appData.datetime;
+            document.getElementById('cfg-letter').value = appData.letter;
+            document.getElementById('copy-feedback').classList.add('hidden');
+            document.getElementById('settings-modal').classList.remove('hidden');
+        }
+
+        function closeSettingsModal() {
+            document.getElementById('settings-modal').classList.add('hidden');
+        }
+
+        function collectFormSettings() {
+            appData.question = document.getElementById('cfg-question').value.trim() || defaultData.question;
+            appData.answer = document.getElementById('cfg-answer').value.trim() || defaultData.answer;
+            appData.hint = document.getElementById('cfg-hint').value.trim() || defaultData.hint;
+            appData.caption = document.getElementById('cfg-caption').value.trim() || defaultData.caption;
+            appData.datetime = document.getElementById('cfg-datetime').value.trim() || defaultData.datetime;
+            appData.letter = document.getElementById('cfg-letter').value.trim() || defaultData.letter;
+            renderAppData();
+            saveToLocalStorage();
+        }
+
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem('love_invite_19_11', JSON.stringify(appData));
+            } catch (e) {
+                // Bỏ qua nếu vượt dung lượng localStorage
+            }
+        }
+
+        function saveAndApplySettings() {
+            collectFormSettings();
+            closeSettingsModal();
+            playSound('success');
+        }
+
+        function copyShareLink() {
+            collectFormSettings();
+            // Đóng gói dữ liệu văn bản vào URL hash
+            const sharePayload = {
+                question: appData.question,
+                answer: appData.answer,
+                hint: appData.hint,
+                caption: appData.caption,
+                datetime: appData.datetime,
+                letter: appData.letter
+            };
+            // Nếu các ảnh là URL web thì đính kèm luôn vào link
+            if (Array.isArray(appData.photos) && appData.photos.some(p => p && p.startsWith('http'))) {
+                sharePayload.photos = appData.photos.map((p, idx) =>
+                    p && p.startsWith('http') ? p : defaultPhotos[idx]
+                );
+            }
+
+            const jsonStr = JSON.stringify(sharePayload);
+            const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+            const shareUrl = `${window.location.origin}${window.location.pathname}#data=${encoded}`;
+
+            // Sao chép vào clipboard tương thích iFrame
+            const tempInput = document.createElement('textarea');
+            tempInput.value = shareUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const feedback = document.getElementById('copy-feedback');
+            feedback.classList.remove('hidden');
+            playSound('success');
+        }
+
+        // 9. Hiệu ứng pháo hoa trái tim
+        function fireHeartConfetti() {
+            if (typeof confetti === 'undefined') return;
+            const colors = ['#C9184A', '#FF4D6D', '#FF8FA3', '#FFB3C1', '#FFD166'];
+            confetti({
+                particleCount: 60,
+                spread: 75,
+                origin: { y: 0.65 },
+                colors: colors
+            });
+        }
+
+        // 10. Hiệu ứng nền: Trái tim bay & cánh hoa rơi liên tục trên Canvas
+        function initBackgroundParticles() {
+            const canvas = document.getElementById('bg-particles');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const shapes = ['heart', 'petal', 'sparkle'];
+            const colors = ['rgba(255, 143, 163, 0.45)', 'rgba(201, 24, 74, 0.25)', 'rgba(255, 179, 193, 0.55)', 'rgba(212, 163, 115, 0.35)'];
+
+            class Particle {
+                constructor() {
+                    this.reset(true);
+                }
+                reset(initial = false) {
+                    this.x = Math.random() * width;
+                    this.y = initial ? Math.random() * height : -20;
+                    this.size = Math.random() * 10 + 6;
+                    this.speedY = Math.random() * 0.9 + 0.35;
+                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    this.rotation = Math.random() * Math.PI * 2;
+                    this.rotSpeed = (Math.random() - 0.5) * 0.02;
+                    this.type = shapes[Math.floor(Math.random() * shapes.length)];
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                }
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX + Math.sin(this.y * 0.015) * 0.3;
+                    this.rotation += this.rotSpeed;
+                    if (this.y > height + 30) {
+                        this.reset(false);
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation);
+                    ctx.fillStyle = this.color;
+
+                    if (this.type === 'heart') {
+                        const s = this.size * 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(0, s * 0.4);
+                        ctx.bezierCurveTo(-s, -s * 0.5, -s * 1.6, s * 0.6, 0, s * 1.5);
+                        ctx.bezierCurveTo(s * 1.6, s * 0.6, s, -s * 0.5, 0, s * 0.4);
+                        ctx.fill();
+                    } else if (this.type === 'petal') {
+                        ctx.beginPath();
+                        ctx.ellipse(0, 0, this.size * 0.7, this.size * 0.4, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, this.size * 0.25, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+            }
+
+            const count = Math.min(38, Math.floor(width / 25));
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (const p of particles) {
+                    p.update();
+                    p.draw();
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // Khởi chạy toàn bộ ứng dụng khi trang tải xong
+        window.onload = function() {
+            loadSavedData();
+            initBackgroundParticles();
+        };
+    </script>
+</body>
+</html>
